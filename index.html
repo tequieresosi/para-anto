@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Para Anto ❤️</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url('https://i.ibb.co/gz4vz4j/heart-pattern.jpg') repeat;
-      background-size: cover;
+      overflow: hidden;
       font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffd6e7;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       color: #fff;
       text-align: center;
+      position: relative;
     }
 
     .mensaje {
@@ -25,11 +26,36 @@
       border-radius: 20px;
       box-shadow: 0 0 30px rgba(255, 192, 203, 0.7);
       max-width: 90%;
+      z-index: 10;
     }
 
     h1 {
       font-size: 2.5rem;
       margin: 0;
+    }
+
+    .corazon {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: url('https://i.imgur.com/Z2MYNbj.png') no-repeat center center;
+      background-size: contain;
+      animation: flotar 10s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) translateX(100vw);
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -37,9 +63,17 @@
   <div class="mensaje">
     <h1>Anto, te quieroo hasta el infinito y más allá 💖✨</h1>
   </div>
-  <audio autoplay loop>
-    <source src="https://cdn.glitch.me/ee99c097-0595-4f93-bdf4-503d2e2dc6b6%2Fkeshi%20-%20UNDERSTAND.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
+
+  <script>
+    // Crear corazones flotantes
+    for (let i = 0; i < 30; i++) {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.animationDuration = (8 + Math.random() * 5) + "s";
+      corazon.style.animationDelay = (Math.random() * 5) + "s";
+      document.body.appendChild(corazon);
+    }
+  </script>
 </body>
 </html>
